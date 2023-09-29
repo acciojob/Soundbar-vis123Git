@@ -1,6 +1,15 @@
 function playSound(soundFileName) {
-    const audio = new Audio("sounds/applause.mp3");
+    const audio = new Audio();
+    audio.src = `sounds/${soundFileName}`;
+    
     audio.play();
+
+	let container = document.getElementByClass("center-container")
+    container.appendChild(audio);
+    
+    audio.addEventListener('ended', () => {
+        audio.remove();
+    });
 }
 
 function stopAllSounds() {
