@@ -1,18 +1,19 @@
-function playSound(soundFileName) {
-    const audio = new Audio();
-    audio.src = `sounds/${soundFileName}`;
-    
-    audio.play();
+let currentAudio = null;
 
-	let container = document.getElementByClass("center-container")
-    container.appendChild(audio);
+function playSound(soundFileName) {
+    if (currentAudio) {
+        currentAudio.pause();
+        currentAudio.currentTime = 0;
+    }
     
-    audio.addEventListener('ended', () => {
-        audio.remove();
-    });
+    currentAudio = new Audio(`sounds/${soundFileName}`);
+    currentAudio.play();
 }
 
 function stopAllSounds() {
-    const allAudioElements = document.querySelectorAll('audio');
-    allAudioElements.forEach((audio) => audio.pause());
+    if (currentAudio) {
+        currentAudio.pause();
+        currentAudio.currentTime = 0;
+        currentAudio = null;
+    }
 }
