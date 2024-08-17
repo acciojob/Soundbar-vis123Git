@@ -5,7 +5,6 @@ function playSound(soundName) {
         currentAudio.pause();
         currentAudio.currentTime = 0;
     }
-    console.log("`./sounds/${soundName}.mp3`====",`./sounds/${soundName}.mp3`)
     currentAudio = new Audio(`./sounds/${soundName}.mp3`);
     currentAudio.play();
 }
