@@ -1,12 +1,12 @@
 let currentAudio = null;
 
-function playSound(soundFileName) {
+function playSound(soundName) {
     if (currentAudio) {
         currentAudio.pause();
         currentAudio.currentTime = 0;
     }
-    
-    currentAudio = new Audio(`sounds/${soundFileName}`);
+    console.log("`./sounds/${soundName}.mp3`====",`./sounds/${soundName}.mp3`)
+    currentAudio = new Audio(`./sounds/${soundName}.mp3`);
     currentAudio.play();
 }
 
